@@ -1,0 +1,242 @@
+body
+{
+	/*если не найдется Arial, то используется любой шрифт без засечек*/
+	font-family: Arial, sans-serif;
+	
+	/*отступы*/
+	padding: 0;
+	margin: 0;
+	color: #222222;
+}
+
+.clearfix:after{
+	content: '';
+	display: table;
+	width: 100%;
+	clear: both;
+}
+
+div{
+	/*не учитывать padding*/
+	box-sizing: border-box;
+}
+
+
+header{
+	/* чтоб картинка не растягивалась*/
+	background: url(../img/voda_volny_tekstura_150750_1920x1200.jpg) no-repeat center top / cover;
+	
+	/* фича, чтоб хидэр был по высоте любого монитора*/
+	/* но надо убрать padding-bottom: 160px;*/
+	height: 100vh;
+}
+
+.conteiner{
+	width: 930px;
+	margin: 0 auto;
+}
+
+.logo{
+	margin-top: 41px;
+	/* к левому краю*/
+	float: left;
+
+}
+
+nav{
+	/* к правому краю*/
+	float: right;
+	margin-top: 41px;
+}
+
+.menu{
+	padding: 0;
+	margin: 0;
+	display: block;
+}
+
+.menu li{
+	float: left;
+	display: block;
+	margin-right: 41px;
+}
+
+.menu a{
+	color: #fff;
+	/*убрать подчеркивание*/
+	text-decoration: none;
+	/*верхний регистр*/
+	text-transform: uppercase;
+	font-size: 15px;
+}
+
+.titles_first{
+	margin-top: 180px;
+	font-size: 40px;
+	color: #fff;
+	text-transform: uppercase;
+	/*center*/
+	text-align: center
+}
+
+h1{
+	font-size: 75px;
+	color: #fff;
+	text-transform: uppercase;
+	/*center*/
+	margin: 15px;
+}
+
+.button{
+	background: #fed136;
+	color: #484543;
+	border-radius: 3px;
+	display:block;
+	width: 240px;
+	padding: 20px 0;
+	margin: 0 auto;
+	text-decoration: none;
+	text-align: center;
+	text-transform: uppercase;
+	font-weight: bold;
+	font-size: 18px;
+	margin-top: 50px;
+}
+
+.title h2{
+	font-weight: bold;
+	font-size: 40px;
+	text-transform: uppercase;
+	padding: 0;
+	margin: 0;
+	text-align: center;
+}
+
+.title{
+	padding-top: 120px;
+}
+
+.title p{
+	font-size: 16px;
+	color: #777777;
+	margin-top: 5px;
+	text-align: center;
+}
+
+.services{
+	margin-top: 100px;
+}
+
+.block_services{
+	width: 270px;
+	float: left;
+	text-align: center;
+}
+
+.block_services p{
+	font-size: 16px;
+	color: #777777;
+	margin-top: 5px;
+
+	/*растояние между строками по вертикали*/
+	line-height: 1.55em;
+}
+
+.block_services h3{
+	font-size: 18px;
+	margin-bottom: 10px;
+}
+
+/*последний элемент из контейнера .block_services*/
+.block_services:last-child{
+	float: right;
+}
+
+/*2-й элемент из контейнера .block_services*/
+.block_services:nth-child(2){
+	margin-left: 60px;
+}
+
+#services{
+	padding-bottom: 100px;
+}
+
+#portfolio{
+	background: #dcdcdc;
+	padding-bottom: 100px;
+}
+
+.works img{
+	float: left
+}
+
+.works img:last-child{
+	float: right;
+}
+
+.works img:nth-child(2){
+	margin-left: 29px;
+}
+
+.works{
+	margin-top: 100px;
+}
+
+#about_us{
+	padding-bottom: 100px;
+}
+
+.about_us_item{
+	padding-top: 100px;
+	display: flex;
+	justify-content: center;
+	height: 310px;
+}
+
+.about_img{
+
+	position: absolute;
+}
+
+.about_us_title{
+	position: relative;
+	margin-left: 35px;
+	width: 500px;
+	text-align: right;
+}
+
+.about_us_title_ver2{
+	position: relative;
+
+	margin-left: 585px;
+	width: 3500px;*/
+}
+
+.about_us_item h3{
+	font-size: 18px;
+	text-transform: uppercase;
+	margin-top: 0;
+	margin-bottom: 0;
+}
+
+.about_us_item h4{
+	font-size: 18px;
+	margin-top: 10px;
+}
+
+.about_us_item p{
+	font-size: 14px;
+	color: #777777;
+	margin-top: 0;
+	line-height: 1.55em;
+}
+
+footer p{
+	font-size: 14px;
+	color: #777777;
+	margin-top: 0;
+	text-align: center;
+	line-height: 1.55em;
+	margin-bottom: 50px;
+}
+
