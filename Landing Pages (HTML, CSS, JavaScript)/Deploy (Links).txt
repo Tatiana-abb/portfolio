@@ -1,1 +1,9 @@
-/
+ActiveBox: https://tatiana-abb.github.io/deployarea/ActiveBox/
+
+APP_calculator: https://tatiana-abb.github.io/deployarea/APP_calculator/
+
+My First Page: https://tatiana-abb.github.io/deployarea/My First Page/
+
+p_shop: https://tatiana-abb.github.io/deployarea/p_shop/
+
+portfolio_ex: https://tatiana-abb.github.io/deployarea/portfolio_ex/
