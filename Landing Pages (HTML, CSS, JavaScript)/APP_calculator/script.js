@@ -10,6 +10,9 @@ class Calculator{
 		this.currentOperand = '';
 		this.previousOperand = '';
 		this.operation = undefined;
+
+		this.currentOperandIsMinusNumber = false;
+		this.prevOperandIsMinusNumber = false;
 	}
 
 	/*удаляет последнюю цифру операнда*/
@@ -24,11 +27,44 @@ class Calculator{
 		/*if (this.readyToReset == true)
 			this.currentOperand = number.toString();
 		else*/
+			if(this.currentOperandIsMinusNumber)
+			{
+				this.currentOperandIsMinusNumber = false;
+				this.currentOperand = '-'
+				this.operation = undefined;
+			}
+
+			if(this.prevOperandIsMinusNumber)
+			{
+				this.prevOperandIsMinusNumber = false;
+				this.currentOperand = '-'
+				this.operation = this.operation.toString().substring(0,1);
+			}
+
+			if(this.readyToReset)
+			{
+				this.currentOperand = number.toString();
+				this.readyToReset = false;
+				return;
+			}
 		this.currentOperand = this.currentOperand.toString() + number.toString();
 	}
 
 
 	chooseOperation(operation){
+		this.readyToReset = false;
+
+		if ((operation == '-') && (this.currentOperand == '') && (this.previousOperand == ''))
+		{
+			this.currentOperandIsMinusNumber = true;
+			this.operation = '-';
+		}
+
+		if ((operation == '-') && (this.operation != undefined) && (this.previousOperand != '') && (this.currentOperand == ''))
+		{
+			this.operation = this.operation.toString() + ' -( )';
+			this.prevOperandIsMinusNumber = true;
+		}
 
 
 		if (this.currentOperand === '') return;
@@ -37,10 +73,12 @@ class Calculator{
 	    }
 	    
 	    if (operation == 'xn'){ operation = '^';}
+
 		this.operation = operation;
 	    this.previousOperand = this.currentOperand;
 	    this.currentOperand = '';
-	    if (operation == '√'){ 
+
+	    if (operation == '√')  { 
 	    	this.compute();
 	    	return;
 	    }
@@ -54,13 +92,13 @@ class Calculator{
 	    if ((isNaN(prev) || isNaN(current)) && this.operation != '√') return;
 	    switch (this.operation) {
 	      case '+':
-	        computation = prev + current;
+	        computation = (prev*10 + current*10)/10;
 	        break
 	      case '-':
-	        computation = prev - current;
+	        computation = (prev*10 - current*10)/10;
 	        break
 	      case '*':
-	        computation = prev * current;
+	        computation = ((prev*10) * (current*10))/100;
 	        break
 	      case '÷':
 	        computation = prev / current;
@@ -69,11 +107,21 @@ class Calculator{
 	        computation = Math.pow(prev,current);
 	        break
 	      case '√':
-	        computation = Math.sqrt(prev);
+	      	if(Math.sign(this.previousOperand) == -1)
+	      	{
+	      		alert('Uncorrect action "' + (prev) + ' √": input number must be positive for this operation. Repeat, please!');
+	      		this.clear();
+	      		return;
+	      	}
+	        this.currentOperand = Math.sqrt(prev);
+	        this.readyToReset = true;
+	   		return;
 	        break
 	      default:
 	        return;
 	    }
+	   /* computation = computation.toString().replace(/0*$/,"");
+	    alert(computation);*/
 	    this.readyToReset = true;
 	    this.currentOperand = computation;
 	    this.operation = undefined;
